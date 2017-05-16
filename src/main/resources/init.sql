@@ -6,12 +6,13 @@ CREATE DATABASE `bfa` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 USE `bfa`;
 
-CREATE TABLE `hi` (
-    `lang` VARCHAR(2),
-    `msg` TEXT NOT NULL,
-    PRIMARY KEY(`lang`)
+CREATE TABLE `ToDo` (
+    `id` int,
+    `status` VARCHAR(20),
+    `text` VARCHAR(20) NOT NULL,
+    PRIMARY KEY(`id`)
 );
 
-INSERT INTO `hi`(`lang`, `msg`) VALUES ('hu', 'Szia <span class="name">%s</span>, mi a helyzet?');
-INSERT INTO `hi`(`lang`, `msg`) VALUES ('en', 'Hi <span class="name">%s</span>, what\'s up?');
-INSERT INTO `hi`(`lang`, `msg`) VALUES ('pl', 'Cześć Joe <span class="name">%s</span>, co się stało?');
+INSERT INTO `ToDo`(`id`, `status`, `text`) VALUES (1, 'new', 'szia');
+INSERT INTO `ToDo`(`id`, `status`, `text`) VALUES (2, 'new', 'sziaa');
+INSERT INTO `ToDo`(`id`, `status`, `text`) VALUES (3, 'new', 'sziaaa');

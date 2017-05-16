@@ -36,7 +36,7 @@ public class ToDoServlet extends HttpServlet {
         ToDoDao toDoDao;
 
         if (request.getSession(true).getAttribute("tododao") == null) {
-            toDoDao = MemoryToDoDao.INSTANCE;
+            toDoDao = new MemoryToDoDao();
             request.getSession(true).setAttribute("tododao", toDoDao);
         } else {
             toDoDao = (ToDoDao) request.getSession(true).getAttribute("tododao");

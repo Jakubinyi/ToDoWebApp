@@ -2,7 +2,9 @@ package dao;
 
 import model.ToDo;
 import model.ToDoStatus;
+import util.ConnectionUtil;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,9 +15,12 @@ import java.util.Map;
  */
 public class MemoryToDoDao implements ToDoDao{
 
+    //Connection connection = ConnectionUtil.getConnection(ConnectionUtil.DatabaseName.BFA);
+
     long toDoCount = 0;
-    public static final Map<Long, ToDo> toDoMap = new HashMap<>();
-    public static final ToDoDao INSTANCE = new MemoryToDoDao();
+    public final Map<Long, ToDo> toDoMap = new HashMap<>();
+    //singleton:
+    //public static final ToDoDao INSTANCE = new MemoryToDoDao();
 
     @Override
     public void addToDo(String text) {
