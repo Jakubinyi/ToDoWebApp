@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="todo.js"></script>
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body onload="refreshToDoList('onload')" id="onload">
+
+<h1>To do list</h1>
+
+<p>
+    <input type="text" id="text"/>
+    <button onclick="addToDo()">New Item</button>
+</p>
+
+<div id="toDos"></div>
+
+<p>
+    <button onclick="refreshToDoList('all')" id="all">show all tasks</button>
+    <button onclick="refreshToDoList('inprogress')" id="inprogress">show in progress tasks</button>
+    <button onclick="refreshToDoList('done')" id="done">show done tasks</button>
+    <button onclick="refreshToDoList('new')" id="new">show done tasks</button>
+</p>
+
+</body>
+</html>
