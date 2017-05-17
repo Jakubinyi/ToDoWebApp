@@ -15,8 +15,6 @@ import java.util.Map;
  */
 public class MemoryToDoDao implements ToDoDao{
 
-    //Connection connection = ConnectionUtil.getConnection(ConnectionUtil.DatabaseName.BFA);
-
     long toDoCount = 0;
     public final Map<Long, ToDo> toDoMap = new HashMap<>();
     //singleton:

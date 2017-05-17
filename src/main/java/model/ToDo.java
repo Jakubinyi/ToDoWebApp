@@ -15,6 +15,12 @@ public class ToDo {
         this.status = ToDoStatus.NEW;
     }
 
+    public ToDo(String text, Long ID, ToDoStatus status) {
+        this.text = text;
+        this.ID = ID;
+        this.status = status;
+    }
+
     public String getText() {
         return text;
     }

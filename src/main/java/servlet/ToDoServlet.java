@@ -1,5 +1,6 @@
 package servlet;
 
+import dao.DBToDoDao;
 import dao.MemoryToDoDao;
 import dao.ToDoDao;
 import model.ToDo;
@@ -21,7 +22,6 @@ public class ToDoServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // addToDo
-        //ToDoDao dao = (ToDoDao) request.getSession().getAttribute("dao.ToDoDao");
 
         String text = request.getParameter("text");
 
@@ -36,7 +36,7 @@ public class ToDoServlet extends HttpServlet {
         ToDoDao toDoDao;
 
         if (request.getSession(true).getAttribute("tododao") == null) {
-            toDoDao = new MemoryToDoDao();
+            toDoDao = new DBToDoDao();
             request.getSession(true).setAttribute("tododao", toDoDao);
         } else {
             toDoDao = (ToDoDao) request.getSession(true).getAttribute("tododao");
@@ -66,21 +66,4 @@ public class ToDoServlet extends HttpServlet {
         response.setContentType("application/json");
         response.getWriter().println(jsonObject);
     }
-
-   /* protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // updateToDo, markToDoAs
-    }
-
-    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // deleteToDo
-
-        // todos/{id}
-        String uri = request.getRequestURI();
-        int index = uri.lastIndexOf('/');
-
-        Long ID = Long.valueOf(uri.substring(index + 1));
-
-        ToDoDao todoDao = MemoryToDoDao.INSTANCE;
-        todoDao.deleteToDo(ID);
-    }*/
 }
